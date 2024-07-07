@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Dashboard</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="page-wrapper">
+            <div class="container-fluid">
+
+                <!-- /.row -->
+                <div class="row">
+                    {% include 'sidebar.html' %}
+
+                    <!-- Main content -->
+                    <div class="col-sm-9 col-md-10">
+                        <!-- Page Heading -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h1 class="page-header">
+                                    {{ employee.name }}
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Employee Detail</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <tbody>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>{{ employee.name }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Number</td>
+                                                <td>{{ employee.number }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Salary</td>
+                                                <td>{{ employee.salary }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Projects</td>
+                                                <td>
+                                                    {% for project in project_list %}
+                                                    <a href="/project/{{ project.number }}/">{{ project.name }}</a><br>
+                                                    {% endfor %}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.table-responsive -->
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel panel-default -->
+                    </div>
+                    <!-- /.col-sm-9 col-md-10 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+</body>
+
+</html>
